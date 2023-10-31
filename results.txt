@@ -1,0 +1,138 @@
+
+Pochien Chao
+hakuchao@bu.edu
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random                     10              6.2             188.8      
+BFS                        10              5.0              47.1
+DFS (depth limit 20)       10             16.2           19072.7   
+DFS (depth limit 50)       10             48.2           49043.0
+Greedy Search              10              5.0               6.5
+A*                         10              5.0               6.7
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random                     10             11.8            3648.3
+BFS                        10             10.0             747.4
+DFS (depth limit 20)       10             18.8           24858.0
+DFS (depth limit 50)       10             49.2           92287.3
+Greedy Search               6             23.333           671.5
+A*                         10             10.0              33.5
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random                      6             17.666         14363.166
+BFS                        10             15.0           12672.0
+DFS (depth limit 20)       10             17.8           68659.0
+DFS (depth limit 50)       10             48.6          111406.0
+Greedy Search               6             20.333           342.833
+A*                         10             15.0             445.5
+
+
+A* algorithm tend to out perform on every scenario.
+It solves every puzzles with almost the lowest average moves and average states tested.
+Greedy algorithm lacks in robustness on solving puzzles and need multiple interruptions.
+DFS may be the most time consuming algorithms since average states tested is more than the others
+(at least 2 times more than other algorithms)
+
+To summarize, A* can solve problems within a shorter amount of time and it would be ideal for the eight-puzzle. 
+
+
+
+
+heuristic 2
+___________
+
+This heuristic 2 checks the total manhattan distance of the misplaced tile.
+The map will check the total distance for each tile compare to
+the final position. 
+It chooses next state based on the answer that had shorter total distance.
+
+For instance
+312
+405
+678
+will try to switch the 4 and 0
+to
+312
+045
+678
+since its distance is only 2 after the move
+while other moves may due to a longer distance result
+e.g.:
+312
+450
+678
+has a total distance of 3 + 1 + 1 + 1 = 6
+
+
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)       5            41.6             1993.0     
+Greedy (heuristic h2)      10            35.4             1671.8
+
+A* (heuristic h1)          10            18.0             2195.7 
+A* (heuristic h2)          10            18.0              332.8
+
+
+
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)       5            47.4             1648.6
+Greedy (heuristic h2)      10            47.6             2186.3
+
+A* (heuristic h1)          10            21.0             9535.3
+A* (heuristic h2)          10            21.0              799.8
+
+
+
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)       2            37.0              287.5
+Greedy (heuristic h2)      10            40.0              412.0
+
+A* (heuristic h1)           0
+A* (heuristic h2)          10            24.0             2492.1     
+
+
+
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)       6            50.0             1647.167
+Greedy (heuristic h2)      10            52.2             1004.2
+
+A* (heuristic h1)           0
+A* (heuristic h2)          10            27.0            10670.0 
+
+
+As we can see, h2 clearly outperformed h1 in terms of both speed and numbers of success execution. 
+In the numbers of problem solved, h2 was able to solve every question even for those that h1 could not.
+Average moves does not shows significant improvement, where has average states tested had obvious results. 
+Overall, we can conclude that in heuristic h2, we have successfully improved its performance and quality of execution. 
+
+
+
+
+
+
+
+
